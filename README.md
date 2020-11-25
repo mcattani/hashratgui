@@ -22,4 +22,6 @@ La interfaz gráfica solo provee de una fracción de lo que este programa es cap
 
     man hashrat
 
+Dentro de la carpeta DEB_file se encuentrán los archivos .deb para su instalación en distros basadas en Debian.
+
 Si te parece útil / interesante esta app por favor visitá mi blog: https://thenerdyapprentice.blogspot.com/
