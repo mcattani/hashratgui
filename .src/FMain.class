@@ -1,0 +1,562 @@
+' Gambas class file
+
+Public Sub Form_Open()
+  ' Creamos SUB para tamaños, van a ser muchas redimensiones
+
+  Dimensiones()
+
+  'Chequeamos que el programa exista
+
+  If Exist("/usr/local/bin/hashrat") = False Then
+    If Exist("/usr/bin/hashrat") = False Then
+      Message.Warning("El programa Hashrat no esta instalado en el sistema, debe instalarlo")
+      IPANEL.Enabled = False
+    Endif
+
+  Endif
+
+End
+
+Public Sub Dimensiones()
+
+  IPANEL.Height = Me.Height
+  IPANEL.Width = Me.Width
+  Separator1.Width = IPANEL.Width - 220
+  Separator2.Width = IPANEL.Width - 220
+  Separator3.Width = IPANEL.Width - 220
+  Separator4.Width = IPANEL.Width - 220
+  Separator5.Width = IPANEL.Width - 220
+  Separator6.Width = IPANEL.Width - 220
+  Separator7.Width = IPANEL.Width - 220
+  Separator8.Width = IPANEL.Width - 220
+  Separator9.Width = IPANEL.Width - 220
+  Separator10.Width = IPANEL.Width - 220
+  Separator11.Width = IPANEL.Width - 220
+  
+  txTexto.Width = IPANEL.Width - 230
+  txMD5.Width = IPANEL.Width - 230
+  txSHA1.Width = IPANEL.Width - 230
+  txSHA256.Width = IPANEL.Width - 230
+  txSHA512.Width = IPANEL.Width - 230
+  txWHIRL.Width = IPANEL.Width - 230
+  txJ224.Width = IPANEL.Width - 230
+  txJ256.Width = IPANEL.Width - 230
+  txJ384.Width = IPANEL.Width - 230
+  txJ512.Width = IPANEL.Width - 230
+  fcArch.Width = IPANEL.Width - 230
+  dcDIR.Width = IPANEL.Width - 230
+  fcArch2.Width = IPANEL.Width - 230
+  txHashComp.Width = IPANEL.Width - 230
+  txSAL.Width = IPANEL.Width - 230
+  txtAbout.Width = IPANEL.Width - 230
+  txHashDir.Width = IPANEL.Width - 230
+
+End
+
+Public Sub Form_Resize()
+
+  Dimensiones()
+
+End
+
+Public Sub Form_KeyPress()
+
+  If Key.code = Key.Esc Then Quit
+
+End
+
+Public Sub txMD5_DblClick()
+  ' Copiamos al portapapeles la salida del hash
+
+  Clipboard.Copy(txMD5.Text)
+
+End
+
+Public Sub txTexto_Change()
+
+  Dim Cod As String
+  'Codes posibles: -8, -10, -H,-HEX,-64,-i64,-p64,-x64,-u64,-g64,-a85,-z85
+  'cdCod.index empieza a partir de 0 en orden - el 0 es "NORMAL"
+
+  Select Case cbCod.Index
+    Case 0
+      Cod = ""
+      txMD5.Text = mHash.HashTxT("md5", txTexto.Text, Cod)
+      txSHA1.text = mHash.HashTxT("sha1", txTexto.Text, Cod)
+      txSHA256.Text = mHash.HashTxT("sha256", txTexto.Text, Cod)
+      txSHA512.Text = mHash.HashTxT("sha512", txTexto.Text, Cod)
+      txWHIRL.Text = mHash.HashTxT("whirl", txTexto.Text, Cod)
+      txJ224.Text = mHash.HashTxT("jh224", txTexto.Text, Cod)
+      txJ256.Text = mHash.HashTxT("jh256", txTexto.Text, Cod)
+      txJ384.Text = mHash.HashTxT("jh384", txTexto.Text, Cod)
+      txJ512.Text = mHash.HashTxT("jh512", txTexto.Text, Cod)
+    Case 1
+      Cod = "8"
+      txMD5.Text = mHash.HashTxT("md5", txTexto.Text, Cod)
+      txSHA1.text = mHash.HashTxT("sha1", txTexto.Text, Cod)
+      txSHA256.Text = mHash.HashTxT("sha256", txTexto.Text, Cod)
+      txSHA512.Text = mHash.HashTxT("sha512", txTexto.Text, Cod)
+      txWHIRL.Text = mHash.HashTxT("whirl", txTexto.Text, Cod)
+      txJ224.Text = mHash.HashTxT("jh224", txTexto.Text, Cod)
+      txJ256.Text = mHash.HashTxT("jh256", txTexto.Text, Cod)
+      txJ384.Text = mHash.HashTxT("jh384", txTexto.Text, Cod)
+      txJ512.Text = mHash.HashTxT("jh512", txTexto.Text, Cod)
+    Case 2
+      Cod = "10"
+      txMD5.Text = mHash.HashTxT("md5", txTexto.Text, Cod)
+      txSHA1.text = mHash.HashTxT("sha1", txTexto.Text, Cod)
+      txSHA256.Text = mHash.HashTxT("sha256", txTexto.Text, Cod)
+      txSHA512.Text = mHash.HashTxT("sha512", txTexto.Text, Cod)
+      txWHIRL.Text = mHash.HashTxT("whirl", txTexto.Text, Cod)
+      txJ224.Text = mHash.HashTxT("jh224", txTexto.Text, Cod)
+      txJ256.Text = mHash.HashTxT("jh256", txTexto.Text, Cod)
+      txJ384.Text = mHash.HashTxT("jh384", txTexto.Text, Cod)
+      txJ512.Text = mHash.HashTxT("jh512", txTexto.Text, Cod)
+    Case 3
+      Cod = "H"
+      txMD5.Text = mHash.HashTxT("md5", txTexto.Text, Cod)
+      txSHA1.text = mHash.HashTxT("sha1", txTexto.Text, Cod)
+      txSHA256.Text = mHash.HashTxT("sha256", txTexto.Text, Cod)
+      txSHA512.Text = mHash.HashTxT("sha512", txTexto.Text, Cod)
+      txWHIRL.Text = mHash.HashTxT("whirl", txTexto.Text, Cod)
+      txJ224.Text = mHash.HashTxT("jh224", txTexto.Text, Cod)
+      txJ256.Text = mHash.HashTxT("jh256", txTexto.Text, Cod)
+      txJ384.Text = mHash.HashTxT("jh384", txTexto.Text, Cod)
+      txJ512.Text = mHash.HashTxT("jh512", txTexto.Text, Cod)
+    Case 4
+      Cod = "64"
+      txMD5.Text = mHash.HashTxT("md5", txTexto.Text, Cod)
+      txSHA1.text = mHash.HashTxT("sha1", txTexto.Text, Cod)
+      txSHA256.Text = mHash.HashTxT("sha256", txTexto.Text, Cod)
+      txSHA512.Text = mHash.HashTxT("sha512", txTexto.Text, Cod)
+      txWHIRL.Text = mHash.HashTxT("whirl", txTexto.Text, Cod)
+      txJ224.Text = mHash.HashTxT("jh224", txTexto.Text, Cod)
+      txJ256.Text = mHash.HashTxT("jh256", txTexto.Text, Cod)
+      txJ384.Text = mHash.HashTxT("jh384", txTexto.Text, Cod)
+      txJ512.Text = mHash.HashTxT("jh512", txTexto.Text, Cod)
+    Case 5
+      Cod = "i64"
+      txMD5.Text = mHash.HashTxT("md5", txTexto.Text, Cod)
+      txSHA1.text = mHash.HashTxT("sha1", txTexto.Text, Cod)
+      txSHA256.Text = mHash.HashTxT("sha256", txTexto.Text, Cod)
+      txSHA512.Text = mHash.HashTxT("sha512", txTexto.Text, Cod)
+      txWHIRL.Text = mHash.HashTxT("whirl", txTexto.Text, Cod)
+      txJ224.Text = mHash.HashTxT("jh224", txTexto.Text, Cod)
+      txJ256.Text = mHash.HashTxT("jh256", txTexto.Text, Cod)
+      txJ384.Text = mHash.HashTxT("jh384", txTexto.Text, Cod)
+      txJ512.Text = mHash.HashTxT("jh512", txTexto.Text, Cod)
+    Case 6
+      Cod = "p64"
+      txMD5.Text = mHash.HashTxT("md5", txTexto.Text, Cod)
+      txSHA1.text = mHash.HashTxT("sha1", txTexto.Text, Cod)
+      txSHA256.Text = mHash.HashTxT("sha256", txTexto.Text, Cod)
+      txSHA512.Text = mHash.HashTxT("sha512", txTexto.Text, Cod)
+      txWHIRL.Text = mHash.HashTxT("whirl", txTexto.Text, Cod)
+      txJ224.Text = mHash.HashTxT("jh224", txTexto.Text, Cod)
+      txJ256.Text = mHash.HashTxT("jh256", txTexto.Text, Cod)
+      txJ384.Text = mHash.HashTxT("jh384", txTexto.Text, Cod)
+      txJ512.Text = mHash.HashTxT("jh512", txTexto.Text, Cod)
+    Case 7
+      Cod = "x64"
+      txMD5.Text = mHash.HashTxT("md5", txTexto.Text, Cod)
+      txSHA1.text = mHash.HashTxT("sha1", txTexto.Text, Cod)
+      txSHA256.Text = mHash.HashTxT("sha256", txTexto.Text, Cod)
+      txSHA512.Text = mHash.HashTxT("sha512", txTexto.Text, Cod)
+      txWHIRL.Text = mHash.HashTxT("whirl", txTexto.Text, Cod)
+      txJ224.Text = mHash.HashTxT("jh224", txTexto.Text, Cod)
+      txJ256.Text = mHash.HashTxT("jh256", txTexto.Text, Cod)
+      txJ384.Text = mHash.HashTxT("jh384", txTexto.Text, Cod)
+      txJ512.Text = mHash.HashTxT("jh512", txTexto.Text, Cod)
+    Case 8
+      Cod = "u64"
+      txMD5.Text = mHash.HashTxT("md5", txTexto.Text, Cod)
+      txSHA1.text = mHash.HashTxT("sha1", txTexto.Text, Cod)
+      txSHA256.Text = mHash.HashTxT("sha256", txTexto.Text, Cod)
+      txSHA512.Text = mHash.HashTxT("sha512", txTexto.Text, Cod)
+      txWHIRL.Text = mHash.HashTxT("whirl", txTexto.Text, Cod)
+      txJ224.Text = mHash.HashTxT("jh224", txTexto.Text, Cod)
+      txJ256.Text = mHash.HashTxT("jh256", txTexto.Text, Cod)
+      txJ384.Text = mHash.HashTxT("jh384", txTexto.Text, Cod)
+      txJ512.Text = mHash.HashTxT("jh512", txTexto.Text, Cod)
+    Case 9
+      Cod = "g64"
+      txMD5.Text = mHash.HashTxT("md5", txTexto.Text, Cod)
+      txSHA1.text = mHash.HashTxT("sha1", txTexto.Text, Cod)
+      txSHA256.Text = mHash.HashTxT("sha256", txTexto.Text, Cod)
+      txSHA512.Text = mHash.HashTxT("sha512", txTexto.Text, Cod)
+      txWHIRL.Text = mHash.HashTxT("whirl", txTexto.Text, Cod)
+      txJ224.Text = mHash.HashTxT("jh224", txTexto.Text, Cod)
+      txJ256.Text = mHash.HashTxT("jh256", txTexto.Text, Cod)
+      txJ384.Text = mHash.HashTxT("jh384", txTexto.Text, Cod)
+      txJ512.Text = mHash.HashTxT("jh512", txTexto.Text, Cod)
+    Case 10
+      Cod = "a85"
+      txMD5.Text = mHash.HashTxT("md5", txTexto.Text, Cod)
+      txSHA1.text = mHash.HashTxT("sha1", txTexto.Text, Cod)
+      txSHA256.Text = mHash.HashTxT("sha256", txTexto.Text, Cod)
+      txSHA512.Text = mHash.HashTxT("sha512", txTexto.Text, Cod)
+      txWHIRL.Text = mHash.HashTxT("whirl", txTexto.Text, Cod)
+      txJ224.Text = mHash.HashTxT("jh224", txTexto.Text, Cod)
+      txJ256.Text = mHash.HashTxT("jh256", txTexto.Text, Cod)
+      txJ384.Text = mHash.HashTxT("jh384", txTexto.Text, Cod)
+      txJ512.Text = mHash.HashTxT("jh512", txTexto.Text, Cod)
+    Case 11
+      Cod = "z85"
+      txMD5.Text = mHash.HashTxT("md5", txTexto.Text, Cod)
+      txSHA1.text = mHash.HashTxT("sha1", txTexto.Text, Cod)
+      txSHA256.Text = mHash.HashTxT("sha256", txTexto.Text, Cod)
+      txSHA512.Text = mHash.HashTxT("sha512", txTexto.Text, Cod)
+      txWHIRL.Text = mHash.HashTxT("whirl", txTexto.Text, Cod)
+      txJ224.Text = mHash.HashTxT("jh224", txTexto.Text, Cod)
+      txJ256.Text = mHash.HashTxT("jh256", txTexto.Text, Cod)
+      txJ384.Text = mHash.HashTxT("jh384", txTexto.Text, Cod)
+      txJ512.Text = mHash.HashTxT("jh512", txTexto.Text, Cod)
+
+  End Select
+
+End
+
+Public Sub txSHA1_DblClick()
+
+  Clipboard.Copy(txSHA1.Text)
+
+End
+
+Public Sub txSHA256_DblClick()
+
+  Clipboard.Copy(txSHA256.Text)
+
+End
+
+Public Sub txSHA512_DblClick()
+
+  Clipboard.Copy(txSHA512.Text)
+
+End
+
+Public Sub txWHIRL_DblClick()
+
+  Clipboard.Copy(txWHIRL.Text)
+
+End
+
+Public Sub txJ224_DblClick()
+
+  Clipboard.Copy(txJ224.Text)
+
+End
+
+Public Sub txJ256_DblClick()
+
+  Clipboard.Copy(txJ256.Text)
+
+End
+
+Public Sub txJ384_DblClick()
+
+  Clipboard.Copy(txJ384.Text)
+
+End
+
+Public Sub txJ512_DblClick()
+
+  Clipboard.Copy(txJ512.Text)
+
+End
+
+Public Sub fcArch_Activate()
+
+  Dim Tipo As String, Code As String, Arch As String
+  Dim iTipo As Integer, iCode As Integer
+
+  txHashArc.Background = Color.Black
+  Wait 1
+  itipo = cbHash.Index
+  icode = cbCod2.Index
+  Tipo = getHash(itipo)
+  Code = getCode(icode)
+  Arch = Chr(34) & fcArch.SelectedPath & Chr(34)
+  txHashArc.Text = ""
+
+  txHashArc.Text = mHash.HashArch(tipo, arch, code)
+
+  Do Until txHashArc.Text <> ""
+    txHashArc.Background = Color.Black
+    Wait 1
+  Loop
+
+  txHashArc.Background = Color.White
+  btGuardar2.Enabled = True
+
+End
+
+Private Function getHash(index As Integer) As String
+  'Tipos posibles: md5, sha1, sha256, sha512, whirl, jh224, jh256, jh384, jh512
+
+  Dim Salida As String
+
+  Select Case index
+    Case 0
+      salida = "md5"
+    Case 1
+      salida = "sha1"
+    Case 2
+      salida = "sha256"
+    Case 3
+      salida = "sha512"
+    Case 4
+      salida = "whirl"
+    Case 5
+      salida = "jh224"
+    Case 6
+      salida = "jh256"
+    Case 7
+      salida = "jh384"
+    Case 8
+      salida = "jh512"
+
+  End Select
+
+  Return salida
+
+End
+
+Private Function getCode(index As Integer) As String
+  'Codes posibles: -8, -10, -H,-64,-i64,-p64,-x64,-u64,-g64,-a85,-z85 -- RECIBIDOS SIN EL -
+
+  Dim salida As String
+
+  Select Case index
+    Case 0
+      salida = ""
+    Case 1
+      salida = "8"
+    Case 2
+      salida = "10"
+    Case 3
+      salida = "H"
+    Case 4
+      salida = "64"
+    Case 5
+      salida = "i64"
+    Case 6
+      salida = "p64"
+    Case 7
+      salida = "x64"
+    Case 8
+      salida = "u64"
+    Case 9
+      salida = "g64"
+    Case 10
+      salida = "a85"
+    Case 11
+      salida = "z85"
+
+  End Select
+
+  Return salida
+
+End
+
+Public Sub dcDIR_Activate()
+
+  Dim Tipo As String, Code As String, Dire As String
+  Dim iTipo As Integer, iCode As Integer
+  Dim Recu As Boolean
+
+  itipo = cbHash2.Index
+  icode = cbCod3.Index
+  tipo = getHash(itipo)
+  Code = getCode(icode)
+
+  txHashDir.Background = Color.Black
+  Wait 1
+
+  If ckRec.Value = True Then
+    recu = True
+    dire = Chr(34) & dcDIR.SelectedPath & Chr(34)
+  Endif
+
+  If ckRec.Value = False Then
+    recu = False
+    dire = Chr(34) & dcDIR.SelectedPath & "/" & Chr(34)
+  Endif
+
+  txHashDir.Text = ""
+
+  txHashDir.Text = mHash.HashDir(tipo, dire, code, recu)
+
+  Do Until txHashDir.Text <> ""
+    txHashDir.Background = Color.Black
+    Wait 1
+  Loop
+
+  txHashDir.Background = Color.White
+  btGuardar.Enabled = True
+
+End
+
+Public Sub txHashArc_DblClick()
+
+  Clipboard.Copy(txHashArc.Text)
+
+End
+
+Public Sub fcArch2_Activate()
+
+  Dim Arch As String
+  Dim Errores As Boolean
+  Dim C1 As String = "cat "
+  Dim CSE As String = " | hashrat -cf"
+  Dim CTO As String = " | hashrat -c"
+  Dim Comm As String
+  Dim hProcc As Process
+
+  Arch = Chr(34) & fcArch2.SelectedPath & Chr(34)
+  Errores = ckOK.Value
+  txHashComp.Text = ""
+
+  Select Case Errores
+    Case False
+      Comm = C1 & arch & CTO
+    Case True
+      Comm = C1 & arch & CSE
+
+  End Select
+  Print comm
+
+  hProcc = Shell (comm) For Read As "Proceso"
+  While hProcc.State = hProcc.Running
+    Wait 0.1
+
+  Wend
+
+End
+
+Public Sub Proceso_read()
+
+  Dim sLine As String
+
+  sLine = Read #Last, Lof(Last)
+  txHashComp.Text &= sLine
+  txHashComp.EnsureVisible()
+
+End
+
+Public Sub dcDIR_Change()
+
+End
+
+Public Sub btGuardar_Click()
+
+  Dim Dire As String
+  Dim Nombre As String
+
+  If Exist("~/Desktop/") Then
+    Dire = "~/Desktop/"
+  Else
+    Dire = "~/Escritorio/"
+  Endif
+
+  Message.Info("Si no se especifica un nombre de salida este sera salida.shs, en cualquier caso el mismo se guarda en el Escritorio.")
+
+  Nombre = InputBox("Nombre?", "Archivo de salida")
+
+  If nombre = "" Then nombre = "salida.shs"
+
+  Try File.Save(dire & nombre, txHashDir.Text)
+  If Error Then
+    Message.Warning(Error.Code & Error.Text)
+  Endif
+
+End
+
+Public Sub btGuardar2_Click()
+
+  Dim Dire As String
+  Dim Nombre As String
+
+  If Exist("~/Desktop/") Then
+    Dire = "~/Desktop/"
+  Else
+    Dire = "~/Escritorio/"
+  Endif
+
+  Message.Info("Si no se especifica un nombre de salida este sera salida.shs, en cualquier caso el mismo se guarda en el Escritorio.")
+
+  Nombre = InputBox("Nombre?", "Archivo de salida")
+
+  If nombre = "" Then nombre = "salida.shs"
+
+  Try File.Save(dire & nombre, txHashArc.Text)
+  If Error Then
+    Message.Warning(Error.Code & Error.Text)
+  Endif
+
+End
+
+Public Sub btEXEC_Click()
+
+  Dim Salida As String
+
+  salida = salida & Key.Enter & mHash.HashEXEC(txCOMM.text)
+
+  txSAL.Text = salida
+
+  btSAVE.Enabled = True
+
+End
+
+Public Sub txCOMM_DblClick()
+
+  btEXEC_Click()
+
+End
+
+Public Sub btSAVE_Click()
+
+  Dim Dire As String
+  Dim Nombre As String
+
+  If Exist("~/Desktop/") Then
+    Dire = "~/Desktop/"
+  Else
+    Dire = "~/Escritorio/"
+  Endif
+
+  Message.Info("Si no se especifica un nombre de salida este sera salida.shs, en cualquier caso el mismo se guarda en el Escritorio.")
+
+  Nombre = InputBox("Nombre?", "Archivo de salida")
+
+  If nombre = "" Then nombre = "salida.shs"
+
+  Try File.Save(dire & nombre, txSAL.Text)
+  If Error Then
+    Message.Warning(Error.Code & Error.Text)
+  Endif
+
+End
+
+Public Sub txSAL_KeyPress()
+
+  If Key.code = Key.Esc Then Quit
+
+End
+
+Public Sub IPANEL_KeyPress()
+
+  If Key.code = Key.Esc Then Quit
+
+End
+
+Public Sub URL_Click()
+
+  Desktop.Open(URL.Link)
+
+End
+
+Public Sub IPANEL_Click()
+
+  
+
+End

@@ -1,0 +1,110 @@
+' Gambas module file
+
+Public Function HashTxT(Tipo As String, Cadena As String, Code As String) As String
+  'Ejemplo de comando: echo "facebook.com password 1234" | hashrat -sha1 -64
+  'Tipos posibles: md5, sha1, sha256, sha512, whirl, jh224, jh256, jh384, jh512
+  'Codes posibles: -8, -10, -H,-HEX,-64,-i64,-p64,-x64,-u64,-g64,-a85,-z85 -- RECIBIDOS SIN EL -
+
+  Dim Comm As String, Salida As String
+
+  If code = "" Then
+    Comm = "echo " & Chr(34) & Cadena & Chr(34) & " | hashrat -" & Tipo
+  Else
+    Comm = "echo " & Chr(34) & Cadena & Chr(34) & " | hashrat -" & Tipo & " -" & Code
+  Endif
+
+  Shell (Comm) To Salida
+
+  Return Salida
+
+End
+
+Public Function HashArch(Tipo As String, Arch As String, Code As String) As String
+  ' Ej: hashrat -sha256 -8  iw5sp.exe
+
+  Dim Comm As String, Salida As String
+
+  If code = "" Then
+    Comm = "hashrat -" & tipo & " " & Arch & " -trad"
+  Else
+    Comm = "hashrat -" & tipo & " -" & code & " " & Arch & " -trad"
+  Endif
+
+  Print Comm
+
+  Shell (Comm) To Salida
+
+  Return Salida
+
+End
+
+Public Function HashDir(Tipo As String, Dir As String, Code As String, Recursive As Boolean) As String
+
+  Dim Comm As String, Salida As String
+
+  Select Case Recursive
+    Case False
+      If Code = "" Then
+        Comm = "hashrat " & "-" & tipo & " " & dir & "* " & "-t"
+      Else
+        comm = "hashrat " & "-" & tipo & " -" & code & " " & dir & "* " & " -t"
+      Endif
+    Case True
+      If code = "" Then
+        Comm = "hashrat " & "-r " & " -" & tipo & " " & dir & " -t"
+      Else
+        comm = "hashrat " & "-" & tipo & " -r" & " -" & code & " " & dir & " -t"
+      Endif
+  End Select
+
+  Print comm
+
+  Shell (comm) To Salida
+
+  Return Salida
+
+End
+
+Public Function HashChk(Arch As String, Solo_Errores As Boolean) As String
+  'comando cat archivo | hashrat -c o -cf
+
+  Dim C1 As String = "cat "
+  Dim CSE As String = " | hashrat -cf"
+  Dim CTO As String = " | hashrat -c"
+  Dim Salida As String, Comm As String
+
+  Select Case Solo_Errores
+    Case False
+      Comm = C1 & arch & CTO
+    Case True
+      Comm = C1 & arch & CSE
+
+  End Select
+
+  Print comm
+
+  Shell (comm) To Salida
+
+  Return Salida
+
+End
+
+Public Function HashEXEC(Commando As String) As String
+
+  Dim COMM As String
+  Dim Salida As String
+
+  Print comm
+  Print Commando
+
+  Comm = Commando
+
+  Try Shell (comm & Commando) To Salida
+  If Error Then
+    salida = Error.Text
+    Return salida
+  Endif
+
+  Return salida
+
+End

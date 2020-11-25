@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Wed, 25 Nov 2020 12:00:00 +0000
+Source: hashrat-gui-qt5
+Binary: hashrat-gui-qt5
+Architecture: source all
+Version: 1.1.4-0ubuntu1
+Distribution: unstable
+Urgency: low
+Maintainer: The Nerdy Apprentice <marianocattani@gmail.com>
+Changed-By: The Nerdy Apprentice <marianocattani@gmail.com>
+Description:
+ hashrat-gui-qt5 - qt5 package for HashRat - GUI
+Changes:
+ hashrat-gui-qt5 (1.1.4-0ubuntu1) unstable; urgency=low
+ .
+   * Pequeños arreglos de bugs.
+Checksums-Sha1:
+ fd090dc3592eb01d24c27ab8f7bea9a4a743eb43 598 hashrat-gui-qt5_1.1.4-0ubuntu1.dsc
+ 9e86da504071aa579d1fe85f48c1e652bfc7634f 1099 hashrat-gui-qt5_1.1.4-0ubuntu1.tar.gz
+ 9dbbbc482763fc114dc6459d656c3e56ebf8e854 1636 hashrat-gui-qt5_1.1.4-0ubuntu1_all.deb
+ ef07d6d303e96bad9ed3404e07e5ac014fb5527d 5885 hashrat-gui-qt5_1.1.4-0ubuntu1_amd64.buildinfo
+Checksums-Sha256:
+ b0b7c92ed62f13914ae37867c772312214590fa2e4e408f35c72a7821e49de04 598 hashrat-gui-qt5_1.1.4-0ubuntu1.dsc
+ bc9b823d8060143b43f1f2e5b6bc2ccd309363217c31d1ff9ec1a72454700bd7 1099 hashrat-gui-qt5_1.1.4-0ubuntu1.tar.gz
+ 3417f5d77695dbc923b5d14831882c4ce3c8eb3365031a8b276d8542be0e5a17 1636 hashrat-gui-qt5_1.1.4-0ubuntu1_all.deb
+ cd7fecab8215aba11670743df56fe78d65cfe0032e979b34bcbe1aea01b282ac 5885 hashrat-gui-qt5_1.1.4-0ubuntu1_amd64.buildinfo
+Files:
+ 50c7ab36ec5fc0c97d96d42681a6317e 598 contrib/admin optional hashrat-gui-qt5_1.1.4-0ubuntu1.dsc
+ 9cbbf724cdf5db29254e6b69e95d1756 1099 contrib/admin optional hashrat-gui-qt5_1.1.4-0ubuntu1.tar.gz
+ 7380a9d99afc8e05a865e028cc7eaed7 1636 contrib/admin optional hashrat-gui-qt5_1.1.4-0ubuntu1_all.deb
+ 9c2f555c60562534cf1d3204134d9a06 5885 contrib/admin optional hashrat-gui-qt5_1.1.4-0ubuntu1_amd64.buildinfo

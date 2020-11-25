@@ -1,0 +1,399 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,183,101)
+  ToolTip = ("HashRat GUI")
+  Text = ("Custom HashRat -GUI-")
+  Icon = Picture["rat_icon.jpg"]
+  Transparent = True
+  { IPANEL IconPanel
+    MoveScaled(0,0,176,100)
+    Background = Color.Background
+    Count = 6
+    Index = 0
+    Text = ("simple desde Cadena")
+    Picture = Picture["unnamed.png"]
+    { cbCod ComboBox
+      MoveScaled(2,6,37,4)
+      ToolTip = ("Tipo de Hash")
+      ReadOnly = True
+      List = [("Normal"), ("8 (Octal)"), ("10 (Decimal)"), ("H (Uppercase HEX)"), ("64 (base64)"), ("i64 (base64 rearranged)"), ("p64 (base64 a-z, A-Z, _-, mejor para sitios)"), ("x64 (base64, XXencode)"), ("u64 (base64, UUencode)"), ("g64 (base64, GEDCOM)"), ("a84 (ASCII85)"), ("z85 (ASCII85, ZEROMQ)")]
+    }
+    { TextLabel1 TextLabel
+      MoveScaled(2,1,15,3)
+      Font = Font["+2"]
+      Text = ("Codificado:")
+      Alignment = Align.Left
+    }
+    { Separator1 Separator
+      MoveScaled(2,4,67,0)
+      Background = Color.Black
+    }
+    { TextLabel2 TextLabel
+      MoveScaled(2,12,9,3)
+      Font = Font["+2"]
+      Text = ("Cadena:")
+      Alignment = Align.Left
+    }
+    { Separator2 Separator
+      MoveScaled(2,15,67,0)
+      Background = Color.Black
+    }
+    { txTexto TextBox
+      MoveScaled(2,17,67,4)
+      ToolTip = ("Introduzca aqui la cadena")
+    }
+    { TextLabel3 TextLabel
+      MoveScaled(2,25,17,3)
+      Font = Font["+1"]
+      Text = ("MD5:")
+      Alignment = Align.Left
+    }
+    { Separator3 Separator
+      MoveScaled(2,23,67,0)
+      Background = Color.Black
+    }
+    { txMD5 TextBox
+      MoveScaled(2,28,67,4)
+      ToolTip = ("Introduzca aqui la cadena")
+      ReadOnly = True
+    }
+    { txSHA1 TextBox
+      MoveScaled(2,36,67,4)
+      ToolTip = ("Introduzca aqui la cadena")
+      ReadOnly = True
+    }
+    { TextLabel4 TextLabel
+      MoveScaled(2,33,20,3)
+      Font = Font["+1"]
+      Text = ("SHA1:")
+      Alignment = Align.Left
+    }
+    { txSHA256 TextBox
+      MoveScaled(2,44,67,4)
+      ToolTip = ("Introduzca aqui la cadena")
+      ReadOnly = True
+    }
+    { TextLabel5 TextLabel
+      MoveScaled(2,41,17,3)
+      Font = Font["+1"]
+      Text = ("SHA256")
+      Alignment = Align.Left
+    }
+    { txSHA512 TextBox
+      MoveScaled(2,52,67,4)
+      ToolTip = ("Introduzca aqui la cadena")
+      ReadOnly = True
+    }
+    { TextLabel6 TextLabel
+      MoveScaled(2,49,17,3)
+      Font = Font["+1"]
+      Text = ("SHA512")
+      Alignment = Align.Left
+    }
+    { txWHIRL TextBox
+      MoveScaled(2,60,67,4)
+      ToolTip = ("Introduzca aqui la cadena")
+      ReadOnly = True
+    }
+    { TextLabel7 TextLabel
+      MoveScaled(2,57,23,3)
+      Font = Font["+1"]
+      Text = ("Whirlpool")
+      Alignment = Align.Left
+    }
+    { txJ224 TextBox
+      MoveScaled(2,68,67,4)
+      ToolTip = ("Introduzca aqui la cadena")
+      ReadOnly = True
+    }
+    { TextLabel8 TextLabel
+      MoveScaled(2,65,21,3)
+      Font = Font["+1"]
+      Text = ("JH224")
+      Alignment = Align.Left
+    }
+    { txJ256 TextBox
+      MoveScaled(2,76,67,4)
+      ToolTip = ("Introduzca aqui la cadena")
+      ReadOnly = True
+    }
+    { TextLabel9 TextLabel
+      MoveScaled(2,73,22,3)
+      Font = Font["+1"]
+      Text = ("JH256")
+      Alignment = Align.Left
+    }
+    { txJ384 TextBox
+      MoveScaled(2,84,67,4)
+      ToolTip = ("Introduzca aqui la cadena")
+      ReadOnly = True
+    }
+    { TextLabel10 TextLabel
+      MoveScaled(2,81,22,3)
+      Font = Font["+1"]
+      Text = ("JH384")
+      Alignment = Align.Left
+    }
+    { txJ512 TextBox
+      MoveScaled(2,92,67,4)
+      ToolTip = ("Introduzca aqui la cadena")
+      ReadOnly = True
+    }
+    { TextLabel11 TextLabel
+      MoveScaled(2,89,27,3)
+      Font = Font["+1"]
+      Text = ("JH512")
+      Alignment = Align.Left
+    }
+    { TextLabel12 TextLabel
+      MoveScaled(41,5,39,8)
+      Font = Font["+1"]
+      Text = ("! Doble click en cualquier caja de texto para copiar al portapapeles")
+      Alignment = Align.Center
+    }
+    Index = 1
+    Text = ("desde Archivo")
+    Picture = Picture["icon:/32/archive"]
+    { TextLabel13 TextLabel
+      MoveScaled(2,2,22,3)
+      Font = Font["+2"]
+      Text = ("Tipo de Hash y Code:")
+      Alignment = Align.Left
+    }
+    { Separator4 Separator
+      MoveScaled(2,5,67,0)
+      Background = Color.Black
+    }
+    { fcArch FileChooser
+      MoveScaled(1,17,124,57)
+      ToolTip = ("Doble click sobre el archivo para realizar el hash")
+      Root = "/home"
+      ShowDetailed = True
+      ReadOnly = True
+    }
+    { cbCod2 ComboBox
+      MoveScaled(33,7,37,4)
+      ToolTip = ("Tipo de Hash")
+      ReadOnly = True
+      List = [("Normal"), ("8 (Octal)"), ("10 (Decimal)"), ("H (Uppercase HEX)"), ("64 (base64)"), ("i64 (base64 rearranged)"), ("p64 (base64 a-z, A-Z, _-, mejor para sitios)"), ("x64 (base64, XXencode)"), ("u64 (base64, UUencode)"), ("g64 (base64, GEDCOM)"), ("a84 (ASCII85)"), ("z85 (ASCII85, ZEROMQ)")]
+    }
+    { cbHash ComboBox
+      MoveScaled(2,7,30,4)
+      ToolTip = ("Tipo de Hash")
+      ReadOnly = True
+      List = [("MD5"), ("SHA1"), ("SHA256"), ("SHA512"), ("WHIRLPOOL"), ("JH224"), ("JH256"), ("JH384"), ("JH512")]
+    }
+    { Separator5 Separator
+      MoveScaled(2,16,67,0)
+      Background = Color.Black
+    }
+    { TextLabel14 TextLabel
+      MoveScaled(2,13,22,3)
+      Font = Font["+2"]
+      Text = ("Archivo:")
+      Alignment = Align.Left
+    }
+    { TextLabel15 TextLabel
+      MoveScaled(2,76,22,3)
+      Font = Font["+2"]
+      Text = ("Hash:")
+      Alignment = Align.Left
+    }
+    { Separator6 Separator
+      MoveScaled(2,79,67,0)
+      Background = Color.Black
+    }
+    { TextLabel16 TextLabel
+      MoveScaled(72,6,39,8)
+      Font = Font["+1"]
+      Text = ("! Doble click sobre el nombre del archivo para hash")
+      Alignment = Align.Center
+    }
+    { txHashArc TextArea
+      MoveScaled(2,81,125,12)
+      Font = Font["+1"]
+      ToolTip = ("Salida del hash")
+      Alignment = Align.Left
+      ReadOnly = True
+      Wrap = True
+    }
+    { btGuardar2 Button
+      MoveScaled(128,81,17,4)
+      Enabled = False
+      ToolTip = ("Guardar hash")
+      Text = ("Guardar")
+      Picture = Picture["icon:/22/download"]
+    }
+    Index = 2
+    Text = ("directorio entero")
+    Picture = Picture["icon:/32/directory"]
+    { TextLabel17 TextLabel
+      MoveScaled(2,1,22,3)
+      Font = Font["+2"]
+      Text = ("Tipo de Hash y Code:")
+      Alignment = Align.Left
+    }
+    { Separator7 Separator
+      MoveScaled(2,4,67,0)
+      Background = Color.Black
+    }
+    { cbCod3 ComboBox
+      MoveScaled(33,6,37,4)
+      ToolTip = ("Tipo de Hash")
+      ReadOnly = True
+      List = [("Normal"), ("8 (Octal)"), ("10 (Decimal)"), ("H (Uppercase HEX)"), ("64 (base64)"), ("i64 (base64 rearranged)"), ("p64 (base64 a-z, A-Z, _-, mejor para sitios)"), ("x64 (base64, XXencode)"), ("u64 (base64, UUencode)"), ("g64 (base64, GEDCOM)"), ("a84 (ASCII85)"), ("z85 (ASCII85, ZEROMQ)")]
+    }
+    { cbHash2 ComboBox
+      MoveScaled(2,6,30,4)
+      ToolTip = ("Tipo de Hash")
+      ReadOnly = True
+      List = [("MD5"), ("SHA1"), ("SHA256"), ("SHA512"), ("WHIRLPOOL"), ("JH224"), ("JH256"), ("JH384"), ("JH512")]
+    }
+    { TextLabel18 TextLabel
+      MoveScaled(2,12,22,3)
+      Font = Font["+2"]
+      Text = ("Directorio:")
+      Alignment = Align.Left
+    }
+    { Separator8 Separator
+      MoveScaled(2,15,67,0)
+      Background = Color.Black
+    }
+    { TextLabel19 TextLabel
+      MoveScaled(2,82,22,3)
+      Font = Font["+2"]
+      Text = ("Hash:")
+      Alignment = Align.Left
+    }
+    { Separator9 Separator
+      MoveScaled(2,85,67,0)
+      Background = Color.Black
+    }
+    { dcDIR DirChooser
+      MoveScaled(2,18,89,59)
+      ToolTip = ("Doble click sobre el directorio para realizar el hash")
+      ShowDetailed = True
+      ShowSplitter = False
+    }
+    { TextLabel20 TextLabel
+      MoveScaled(72,5,39,8)
+      Font = Font["+1"]
+      Text = ("! Doble click sobre el directorio para realizar el hash")
+      Alignment = Align.Center
+    }
+    { ckRec CheckBox
+      MoveScaled(2,78,17,4)
+      Font = Font["+2"]
+      ToolTip = ("Incluir los archivos dentro de los directorios")
+      Text = ("Recursivo?")
+    }
+    { txHashDir TextArea
+      MoveScaled(2,87,125,12)
+      Font = Font["+1"]
+      ToolTip = ("Salida del hash")
+      Alignment = Align.Left
+      ReadOnly = True
+      Wrap = True
+    }
+    { btGuardar Button
+      MoveScaled(19,78,17,5)
+      Enabled = False
+      Font = Font["+1"]
+      ToolTip = ("Guardar salida hash")
+      Text = ("Guardar")
+      Picture = Picture["icon:/32/download"]
+    }
+    Index = 3
+    Text = ("Integridad")
+    Picture = Picture["icon:/32/replace"]
+    { TextLabel21 TextLabel
+      MoveScaled(1,1,27,3)
+      Font = Font["+2"]
+      Text = ("Archivo con los hash:")
+      Alignment = Align.Left
+    }
+    { Separator10 Separator
+      MoveScaled(1,4,67,0)
+      Background = Color.Black
+    }
+    { fcArch2 FileChooser
+      MoveScaled(1,6,124,57)
+      ToolTip = ("Doble click sobre el archivo que contiene los hash para realizar comprobacion de integridad")
+      Root = "/home"
+      ShowDetailed = True
+      ReadOnly = True
+    }
+    { txHashComp TextArea
+      MoveScaled(1,69,125,30)
+      Font = Font["+1"]
+      ToolTip = ("Salida de la comprobacion")
+      Alignment = Align.Left
+      ReadOnly = True
+      Wrap = True
+    }
+    { ckOK CheckBox
+      MoveScaled(1,64,27,3)
+      Font = Font["+2"]
+      ToolTip = ("Muestra solo salida si hay errores")
+      Text = ("Mostrar solo errores?")
+    }
+    Index = 4
+    Text = ("Ejecutar Comando")
+    Picture = Picture["icon:/32/exec"]
+    { TextLabel22 TextLabel
+      MoveScaled(2,1,27,3)
+      Font = Font["+2"]
+      Text = ("Comando a ejectuar:")
+      Alignment = Align.Left
+    }
+    { Separator11 Separator
+      MoveScaled(2,4,67,0)
+      Background = Color.Black
+    }
+    { txCOMM TextBox
+      MoveScaled(2,6,94,5)
+      Text = ("hashrat --help")
+    }
+    { txSAL TextArea
+      MoveScaled(2,14,142,85)
+      ReadOnly = True
+    }
+    { btEXEC Button
+      MoveScaled(98,6,15,5)
+      ToolTip = ("Ejecuta el comando personalizado")
+      Text = ("Ejecutar")
+      Picture = Picture["icon:/32/exec"]
+    }
+    { btSAVE Button
+      MoveScaled(116,6,15,5)
+      Enabled = False
+      Text = ("Guardar")
+      Picture = Picture["icon:/32/download"]
+    }
+    Index = 5
+    Text = ("Acerca de ...")
+    Picture = Picture["icon:/22/bookmark"]
+    { PictureBox1 PictureBox
+      MoveScaled(0,3,54,34)
+      ToolTip = ("Logo")
+      AutoResize = True
+      Picture = Picture["Logo_Oficial.png"]
+      Stretch = True
+    }
+    { txtAbout TextArea
+      MoveScaled(4,41,101,34)
+      ToolTip = ("Acerca de mí") & "..."
+      Text = ("Hobbista y nerd, me gusta experimentar y aprender haciendo aplicaciones que\nme hagan las cosas más fáciles. \nTengo un blog donde subo mis proyectos (incluidas las fuentes de este programa) e información adicional:\n\nhttps://thenerdyapprentice.blogspot.com/\n\nSi encontraste útil este programa: por favor visita el blog!, dejá un comentario y difundí!\n\nEste programa es de libre distribución.\n\nSaludos! ")
+      ReadOnly = True
+    }
+    { URL URLLabel
+      MoveScaled(4,79,80,4)
+      Font = Font["+5"]
+      ToolTip = ("Click para acceder al blog")
+      Text = ("https://thenerdyapprentice.blogspot.com/")
+      Link = "https://thenerdyapprentice.blogspot.com/"
+    }
+    Index = 0
+  }
+}
