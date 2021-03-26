@@ -1,76 +1,62 @@
 ' Gambas class file
 
 Public Sub Form_Open()
-  ' Creamos SUB para tamaños, van a ser muchas redimensiones
+FMain.Text = FMain.Text & " v." & Application.Version
 
-  Dimensiones()
+'Chequeamos que el programa exista
+If Not Exist("/usr/bin/hashrat") Then
+  Message.Warning("Debe tener el programa 'hashrat' para poder utilizar este programa.")
+  Return
+Endif
 
-  'Chequeamos que el programa exista
+' Creamos SUB para tamaños, van a ser muchas redimensiones
 
-  If Exist("/usr/local/bin/hashrat") = False Then
-    If Exist("/usr/bin/hashrat") = False Then
-      Message.Warning("El programa Hashrat no esta instalado en el sistema, debe instalarlo")
-      IPANEL.Enabled = False
-    Endif
-
-  Endif
+' Dimensiones()
 
 End
 
-Public Sub Dimensiones()
+'Public Sub Dimensiones()
 
-  IPANEL.Height = Me.Height
-  IPANEL.Width = Me.Width
-  Separator1.Width = IPANEL.Width - 220
-  Separator2.Width = IPANEL.Width - 220
-  Separator3.Width = IPANEL.Width - 220
-  Separator4.Width = IPANEL.Width - 220
-  Separator5.Width = IPANEL.Width - 220
-  Separator6.Width = IPANEL.Width - 220
-  Separator7.Width = IPANEL.Width - 220
-  Separator8.Width = IPANEL.Width - 220
-  Separator9.Width = IPANEL.Width - 220
-  Separator10.Width = IPANEL.Width - 220
-  Separator11.Width = IPANEL.Width - 220
+'  IPANEL.Height = Me.Height
+'  IPANEL.Width = Me.Width
+'  Separator1.Width = IPANEL.Width - 220
+'  Separator2.Width = IPANEL.Width - 220
+'  Separator3.Width = IPANEL.Width - 220
+'  Separator4.Width = IPANEL.Width - 220
+'  Separator5.Width = IPANEL.Width - 220
+'  Separator6.Width = IPANEL.Width - 220
+'  Separator7.Width = IPANEL.Width - 220
+'  Separator8.Width = IPANEL.Width - 220
+'  Separator9.Width = IPANEL.Width - 220
+'  Separator10.Width = IPANEL.Width - 220
+'  Separator11.Width = IPANEL.Width - 220
   
-  txTexto.Width = IPANEL.Width - 230
-  txMD5.Width = IPANEL.Width - 230
-  txSHA1.Width = IPANEL.Width - 230
-  txSHA256.Width = IPANEL.Width - 230
-  txSHA512.Width = IPANEL.Width - 230
-  txWHIRL.Width = IPANEL.Width - 230
-  txJ224.Width = IPANEL.Width - 230
-  txJ256.Width = IPANEL.Width - 230
-  txJ384.Width = IPANEL.Width - 230
-  txJ512.Width = IPANEL.Width - 230
-  fcArch.Width = IPANEL.Width - 230
-  dcDIR.Width = IPANEL.Width - 230
-  fcArch2.Width = IPANEL.Width - 230
-  txHashComp.Width = IPANEL.Width - 230
-  txSAL.Width = IPANEL.Width - 230
-  txtAbout.Width = IPANEL.Width - 230
-  txHashDir.Width = IPANEL.Width - 230
+'  txTexto.Width = IPANEL.Width - 230
+'  txMD5.Width = IPANEL.Width - 230
+'  txSHA1.Width = IPANEL.Width - 230
+'  txSHA256.Width = IPANEL.Width - 230
+'  txSHA512.Width = IPANEL.Width - 230
+'  txWHIRL.Width = IPANEL.Width - 230
+'  txJ224.Width = IPANEL.Width - 230
+'  txJ256.Width = IPANEL.Width - 230
+'  txJ384.Width = IPANEL.Width - 230
+'  txJ512.Width = IPANEL.Width - 230
+'  fcArch.Width = IPANEL.Width - 230
+'  dcDIR.Width = IPANEL.Width - 230
+'  fcArch2.Width = IPANEL.Width - 230
+'  txHashComp.Width = IPANEL.Width - 230
+'  txSAL.Width = IPANEL.Width - 230
+'  txtAbout.Width = IPANEL.Width - 230
+' txHashDir.Width = IPANEL.Width - 230
 
-End
+'End
 
-Public Sub Form_Resize()
+'Public Sub Form_Resize()
 
-  Dimensiones()
+ 'Dimensiones()
 
-End
+'End
 
-Public Sub Form_KeyPress()
-
-  If Key.code = Key.Esc Then Quit
-
-End
-
-Public Sub txMD5_DblClick()
-  ' Copiamos al portapapeles la salida del hash
-
-  Clipboard.Copy(txMD5.Text)
-
-End
 
 Public Sub txTexto_Change()
 
@@ -216,76 +202,27 @@ Public Sub txTexto_Change()
 
 End
 
-Public Sub txSHA1_DblClick()
-
-  Clipboard.Copy(txSHA1.Text)
-
-End
-
-Public Sub txSHA256_DblClick()
-
-  Clipboard.Copy(txSHA256.Text)
-
-End
-
-Public Sub txSHA512_DblClick()
-
-  Clipboard.Copy(txSHA512.Text)
-
-End
-
-Public Sub txWHIRL_DblClick()
-
-  Clipboard.Copy(txWHIRL.Text)
-
-End
-
-Public Sub txJ224_DblClick()
-
-  Clipboard.Copy(txJ224.Text)
-
-End
-
-Public Sub txJ256_DblClick()
-
-  Clipboard.Copy(txJ256.Text)
-
-End
-
-Public Sub txJ384_DblClick()
-
-  Clipboard.Copy(txJ384.Text)
-
-End
-
-Public Sub txJ512_DblClick()
-
-  Clipboard.Copy(txJ512.Text)
-
-End
 
 Public Sub fcArch_Activate()
 
   Dim Tipo As String, Code As String, Arch As String
   Dim iTipo As Integer, iCode As Integer
 
-  txHashArc.Background = Color.Black
-  Wait 1
   itipo = cbHash.Index
   icode = cbCod2.Index
   Tipo = getHash(itipo)
   Code = getCode(icode)
   Arch = Chr(34) & fcArch.SelectedPath & Chr(34)
   txHashArc.Text = ""
-
+ 
   txHashArc.Text = mHash.HashArch(tipo, arch, code)
 
-  Do Until txHashArc.Text <> ""
-    txHashArc.Background = Color.Black
-    Wait 1
-  Loop
-
-  txHashArc.Background = Color.White
+ ' Do While txHashArc.Text <> ""
+ ' txHashArc.Text = mHash.HashArch(tipo, arch, code)
+ ' Loop
+ 
+  'txHashArc.Background = Color.White
+ 
   btGuardar2.Enabled = True
 
 End
@@ -427,9 +364,12 @@ Public Sub fcArch2_Activate()
 
   hProcc = Shell (comm) For Read As "Proceso"
   While hProcc.State = hProcc.Running
-    Wait 0.1
-
+    Wait 1
+    FMain.Mouse = Mouse.Wait
+    
   Wend
+  
+  FMain.Mouse = Mouse.Default
 
 End
 
@@ -449,49 +389,60 @@ End
 
 Public Sub btGuardar_Click()
 
-  Dim Dire As String
-  Dim Nombre As String
+  If Dialog.SaveFile() Then Return
+  File.Save(Dialog.Path, txHashDir.Text)
+  
+  Catch
+  Message.Warning(Error.Text)
 
-  If Exist("~/Desktop/") Then
-    Dire = "~/Desktop/"
-  Else
-    Dire = "~/Escritorio/"
-  Endif
+  'Dim Dire As String
+  'Dim Nombre As String
 
-  Message.Info("Si no se especifica un nombre de salida este sera salida.shs, en cualquier caso el mismo se guarda en el Escritorio.")
+  'If Exist("~/Desktop/") Then
+  '  Dire = "~/Desktop/"
+  'Else
+  '  Dire = "~/Escritorio/"
+  'Endif
 
-  Nombre = InputBox("Nombre?", "Archivo de salida")
+  'Message.Info("Si no se especifica un nombre de salida este sera salida.shs, en cualquier caso el mismo se guarda en el Escritorio.")
 
-  If nombre = "" Then nombre = "salida.shs"
+  'Nombre = InputBox("Nombre?", "Archivo de salida")
 
-  Try File.Save(dire & nombre, txHashDir.Text)
-  If Error Then
-    Message.Warning(Error.Code & Error.Text)
-  Endif
+  'If nombre = "" Then nombre = "salida.shs"
+
+  'Try File.Save(dire & nombre, txHashDir.Text)
+  'If Error Then
+  '  Message.Warning(Error.Code & Error.Text)
+  'Endif
 
 End
 
 Public Sub btGuardar2_Click()
 
-  Dim Dire As String
-  Dim Nombre As String
+If Dialog.SaveFile() Then Return
+  File.Save(Dialog.Path, txHashArc.Text)
+  Catch
+  Message.Warning(Error.Text)
 
-  If Exist("~/Desktop/") Then
-    Dire = "~/Desktop/"
-  Else
-    Dire = "~/Escritorio/"
-  Endif
+  'Dim Dire As String
+  'Dim Nombre As String
 
-  Message.Info("Si no se especifica un nombre de salida este sera salida.shs, en cualquier caso el mismo se guarda en el Escritorio.")
+  'If Exist("~/Desktop/") Then
+  '  Dire = "~/Desktop/"
+  'Else
+  '  Dire = "~/Escritorio/"
+  'Endif
 
-  Nombre = InputBox("Nombre?", "Archivo de salida")
+  'Message.Info("Si no se especifica un nombre de salida este sera salida.shs, en cualquier caso el mismo se guarda en el Escritorio.")
 
-  If nombre = "" Then nombre = "salida.shs"
+  'Nombre = InputBox("Nombre?", "Archivo de salida")
 
-  Try File.Save(dire & nombre, txHashArc.Text)
-  If Error Then
-    Message.Warning(Error.Code & Error.Text)
-  Endif
+  'If nombre = "" Then nombre = "salida.shs"
+
+  'Try File.Save(dire & nombre, txHashArc.Text)
+  'If Error Then
+  '  Message.Warning(Error.Code & Error.Text)
+  'Endif
 
 End
 
@@ -555,8 +506,122 @@ Public Sub URL_Click()
 
 End
 
-Public Sub IPANEL_Click()
 
+
+Public Sub Form_Close()
+
+  Quit
   
+End
+
+Public Sub btCMD5_Click()
+
+  Clipboard.Copy(txMD5.Text)
+
+End
+
+Public Sub btCSHA1_Click()
+
+  Clipboard.Copy(txSHA1.Text)
+
+End
+
+Public Sub btCSHA256_Click()
+
+  Clipboard.Copy(txSHA256.Text)
+
+End
+
+Public Sub btCSHA512_Click()
+
+  Clipboard.Copy(txSHA512.Text)
+
+End
+
+
+Public Sub btCJH224_Click()
+
+  Clipboard.Copy(txJ224.Text)
+
+End
+
+Public Sub btCJH256_Click()
+
+  Clipboard.Copy(txJ256.Text)
+
+End
+
+Public Sub btCJH384_Click()
+
+  Clipboard.Copy(txJ384.Text)
+
+End
+
+Public Sub btCJH512_Click()
+
+  Clipboard.Copy(txJ512.Text)
+
+End
+
+Public Sub btCWHIRL_Click()
+
+  Clipboard.Copy(txWHIRL.Text)
+
+End
+
+Public Function GitVersion(raw As String) As String            
+
+     Dim s As String
+     Dim stx As String[]
+     Dim r As String
+     Dim v As String
+
+     v = ""
+     If Exist("/tmp/project.txt") Then
+          Shell "rm /tmp/project.txt" Wait
+     Endif
+
+     Shell "wget -O '/tmp/project.txt' '" & raw & "'" Wait
+     If Exist("/tmp/project.txt") Then
+          s = File.Load("/tmp/project.txt")
+          stx = Split(s, "\n")
+          For Each r In stx
+               If InStr(r, "Version=") Then
+                    If Split(r, "=")[0] = "Version" Then
+                         v = Split(r, "=")[1]
+                         Break
+                    Endif
+               Endif
+          Next
+     Endif
+     Return v
+
+End
+
+Public Sub btBuscarAct_Click()
+
+  Dim vChk As String
+
+     vChk = GitVersion("https://raw.githubusercontent.com/mcattani/hashratgui/master/.project")
+
+     If Application.Version < vChk Then
+          Message.Info(("Nueva versión encontrada!") & ": " & "v" & vChk)
+     Else
+          Message.Info(("No hay actualizaciones disponibles"))
+     Endif
+
+End
+
+
+
+Public Sub btCHashA_Click()
+
+  Clipboard.Copy(txHashArc.Text)
+
+End
+
+Public Sub btCHashD_Click()
+
+  Clipboard.Copy(txHashDir.Text)
 
 End

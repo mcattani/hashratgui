@@ -1,9 +1,10 @@
 # Gambas Project File 3.0
 Title=HashRat - GUI
 Startup=FMain
-Version=1.1.4
+Icon=icon.png
+Version=1.10.4
 Component=gb.image
-Component=gb.gui.qt
+Component=gb.gui
 Component=gb.form
 Component=gb.data
 Component=gb.dbus
@@ -11,11 +12,9 @@ Component=gb.desktop
 Component=gb.form.dialog
 Component=gb.util
 Component=gb.settings
-Component=gb.form.stock
 Component=gb.gui.trayicon
-Component=gb.vb
-Description="GUI para HashRat. Visitá mi Blog para más proyectos!\nhttps://thenerdyapprentice.blogspot.com/"
-Authors="Ozymandias"
+Description="GUI para HashRat. \nVisitá mi Blog para más proyectos!\nhttps://thenerdyapprentice.blogspot.com/"
+Authors="The Nerdy Apperntice"
 TabSize=2
 Translate=1
 Language=es_AR

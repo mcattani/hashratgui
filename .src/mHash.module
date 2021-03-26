@@ -14,7 +14,7 @@ Public Function HashTxT(Tipo As String, Cadena As String, Code As String) As Str
   Endif
 
   Shell (Comm) To Salida
-
+     
   Return Salida
 
 End
@@ -33,7 +33,7 @@ Public Function HashArch(Tipo As String, Arch As String, Code As String) As Stri
   Print Comm
 
   Shell (Comm) To Salida
-
+    
   Return Salida
 
 End
@@ -60,7 +60,7 @@ Public Function HashDir(Tipo As String, Dir As String, Code As String, Recursive
   Print comm
 
   Shell (comm) To Salida
-
+   
   Return Salida
 
 End
@@ -84,7 +84,7 @@ Public Function HashChk(Arch As String, Solo_Errores As Boolean) As String
   Print comm
 
   Shell (comm) To Salida
-
+  
   Return Salida
 
 End
@@ -101,7 +101,7 @@ Public Function HashEXEC(Commando As String) As String
 
   Try Shell (comm & Commando) To Salida
   If Error Then
-    salida = Error.Text
+    Salida = Error.Text
     Return salida
   Endif
 
