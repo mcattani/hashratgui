@@ -45,15 +45,15 @@ Public Function HashDir(Tipo As String, Dir As String, Code As String, Recursive
   Select Case Recursive
     Case False
       If Code = "" Then
-        Comm = "hashrat " & "-" & tipo & " " & dir & "* " & "-t"
+        Comm = "hashrat " & "-" & tipo & " -t " & dir 
       Else
-        comm = "hashrat " & "-" & tipo & " -" & code & " " & dir & "* " & " -t"
+        comm = "hashrat " & "-" & tipo & " -" & code & " -t " & dir 
       Endif
     Case True
       If code = "" Then
-        Comm = "hashrat " & "-r " & " -" & tipo & " " & dir & " -t"
+        Comm = "hashrat " & "-r " & " -" & tipo & " -t " & dir 
       Else
-        comm = "hashrat " & "-" & tipo & " -r" & " -" & code & " " & dir & " -t"
+        comm = "hashrat " & "-" & tipo & " -r" & " -" & code & " -t " & dir
       Endif
   End Select
 
@@ -64,6 +64,20 @@ Public Function HashDir(Tipo As String, Dir As String, Code As String, Recursive
   Return Salida
 
 End
+
+Public Function HashDirCom(Tipo As String, Dir As String, Code As String) As String
+Dim Comm As String, Salida As String
+
+Comm = "hashrat " & "-dir -trad " & "-" & tipo & " " & "-" & Code & " " & Dir  
+
+Print Comm
+
+Shell (Comm) To Salida
+
+Return Salida
+    
+End
+
 
 Public Function HashChk(Arch As String, Solo_Errores As Boolean) As String
   'comando cat archivo | hashrat -c o -cf
@@ -100,11 +114,7 @@ Public Function HashEXEC(Commando As String) As String
   Comm = Commando
 
   Try Shell (comm & Commando) To Salida
-  If Error Then
-    Salida = Error.Text
-    Return salida
-  Endif
-
+ 
   Return salida
 
 End

@@ -2,7 +2,7 @@
 Title=HashRat - GUI
 Startup=FMain
 Icon=icon.png
-Version=1.10.4
+Version=1.12.6
 Component=gb.image
 Component=gb.gui
 Component=gb.form

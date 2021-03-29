@@ -9,8 +9,6 @@ If Not Exist("/usr/bin/hashrat") Then
   Return
 Endif
 
-' Creamos SUB para tamaños, van a ser muchas redimensiones
-
 ' Dimensiones()
 
 End
@@ -307,26 +305,26 @@ Public Sub dcDIR_Activate()
   Code = getCode(icode)
 
   txHashDir.Background = Color.Black
-  Wait 1
-
-  If ckRec.Value = True Then
-    recu = True
-    dire = Chr(34) & dcDIR.SelectedPath & Chr(34)
-  Endif
-
-  If ckRec.Value = False Then
-    recu = False
-    dire = Chr(34) & dcDIR.SelectedPath & "/" & Chr(34)
-  Endif
-
-  txHashDir.Text = ""
-
-  txHashDir.Text = mHash.HashDir(tipo, dire, code, recu)
-
-  Do Until txHashDir.Text <> ""
-    txHashDir.Background = Color.Black
+  txHashDir.Text = "" ' Limpiamos la salida
+  
     Wait 1
-  Loop
+
+  If rbNormal.Value = True Then
+    Recu = False
+    dire = dcDIR.SelectedPath
+    txHashDir.Text = mHash.HashDir(tipo, dire, code, recu)
+   Endif
+   
+  If rbRecursivo.value = True Then
+    Recu = True
+    dire = dcDIR.SelectedPath
+    txHashDir.Text = mHash.HashDir(tipo, dire, code, recu)
+  Endif
+  
+  If rbHashDir.value = True Then
+    dire = dcDIR.SelectedPath
+    txHashDir.Text = mHash.HashDirCom(tipo, Dire, code)
+  Endif
 
   txHashDir.Background = Color.White
   btGuardar.Enabled = True
@@ -363,14 +361,14 @@ Public Sub fcArch2_Activate()
   Print comm
 
   hProcc = Shell (comm) For Read As "Proceso"
-  While hProcc.State = hProcc.Running
-    Wait 1
-    FMain.Mouse = Mouse.Wait
-    
-  Wend
   
-  FMain.Mouse = Mouse.Default
-
+  While hProcc.State = hProcc.Running
+    IPANEL.Mouse = Mouse.Wait
+    Wait 1
+   Wend
+  
+  IPANEL.Mouse = Mouse.Default
+  
 End
 
 Public Sub Proceso_read()
@@ -507,13 +505,6 @@ Public Sub URL_Click()
 End
 
 
-
-Public Sub Form_Close()
-
-  Quit
-  
-End
-
 Public Sub btCMD5_Click()
 
   Clipboard.Copy(txMD5.Text)
@@ -623,5 +614,23 @@ End
 Public Sub btCHashD_Click()
 
   Clipboard.Copy(txHashDir.Text)
+
+End
+
+Public Sub Form_KeyRelease()
+
+  If Key.code = Key.esc Then Quit
+   
+
+End
+
+Public Sub txCOMM_KeyPress()
+
+  If Key.Code = Key.enter Or Key.code = 65293 Then ' Para que reconozca ambas teclas "enter" la común y la del teclado numérico
+    btEXEC_Click()
+    Else
+      Print Key.Code
+      
+  Endif
 
 End
