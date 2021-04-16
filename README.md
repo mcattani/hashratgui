@@ -1,4 +1,6 @@
 # hashratgui
+v1.14.6
+
 HashRat es una app utilizada para generar “hashes” utilizando diferentes algoritmos: md5, sha1, sha256, sha512, etc..
 
     Hashrat is a hash-generation utility that supports the md5, sha1, sha256, sha512, whirlpool, jh-224, jh256, jh-384 and jh-512 hash functions. Hashes can be output in octal, decimal, hexadecimal, uppercase hexadecimal or base64. 

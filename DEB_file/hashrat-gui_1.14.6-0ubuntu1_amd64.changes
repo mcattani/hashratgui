@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Tue, 13 Apr 2021 12:00:00 +0000
+Source: hashrat-gui
+Binary: hashrat-gui
+Architecture: source all
+Version: 1.14.6-0ubuntu1
+Distribution: unstable
+Urgency: low
+Maintainer: The Nerdy Apprentice <marianocattani@gmail.com>
+Changed-By: The Nerdy Apprentice <marianocattani@gmail.com>
+Description:
+ hashrat-gui - GUI para HashRat.
+Changes:
+ hashrat-gui (1.14.6-0ubuntu1) unstable; urgency=low
+ .
+   * Pequeña correción en el tamaño del formulario
+Checksums-Sha1:
+ cc848ed1547a27a167d99f540fb5cb98ca9730ab 1375 hashrat-gui_1.14.6-0ubuntu1.dsc
+ 889d1657ac5fa99270dab61016ece42c4b3ba968 1853 hashrat-gui_1.14.6-0ubuntu1.diff.gz
+ 596e79079afdd638aee7578799d4bd7948f0ad54 943228 hashrat-gui_1.14.6-0ubuntu1_all.deb
+ abca84a4aded21ef850aa1bf6d4fc8adf26acf8a 6639 hashrat-gui_1.14.6-0ubuntu1_amd64.buildinfo
+Checksums-Sha256:
+ 0f198aa704fd128ca26f916424c310d93a39da2e350fb47e4861f56cc1bb725e 1375 hashrat-gui_1.14.6-0ubuntu1.dsc
+ fb1e6f70e5f318854043399b10b194f2053764521fdf32b99081fbcea43db60d 1853 hashrat-gui_1.14.6-0ubuntu1.diff.gz
+ 3965f7bbf96198f775337d2742e9824ad6a94f9cb151150ae693dae86bff3766 943228 hashrat-gui_1.14.6-0ubuntu1_all.deb
+ 52716d9e1ed11cac946ab8124a0e7502414ad273453bad5ffcf0ca88c0899d54 6639 hashrat-gui_1.14.6-0ubuntu1_amd64.buildinfo
+Files:
+ 703e2ddc16e6af96715088f29d2681a6 1375 contrib/utils optional hashrat-gui_1.14.6-0ubuntu1.dsc
+ c60425dd0712326c0bbb6a48ec2bc263 1853 contrib/utils optional hashrat-gui_1.14.6-0ubuntu1.diff.gz
+ 9f6de0fc980b53e17d1e36ce8f17ba58 943228 contrib/utils optional hashrat-gui_1.14.6-0ubuntu1_all.deb
+ fa43c2225f73ab229a27fa51e5a4c8e7 6639 contrib/utils optional hashrat-gui_1.14.6-0ubuntu1_amd64.buildinfo

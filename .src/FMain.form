@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,135,97)
+  MoveScaled(0,0,133,97)
   ToolTip = ("HashRat GUI")
   Text = ("Hashrat - GUI")
   Icon = Picture["icon.png"]
@@ -206,8 +206,9 @@
       MoveScaled(2,5,102,0)
       Background = Color.Black
     }
-    { fcArch FileChooser
+    { !fcArch FileChooser
       MoveScaled(2,17,102,56)
+      #Public = True
       ToolTip = ("Doble click sobre el archivo para realizar el hash")
       Root = "/home"
       ShowDetailed = True
@@ -256,13 +257,13 @@
     { btGuardar2 Button
       MoveScaled(87,75,17,4)
       Enabled = False
-      ToolTip = ("Guardar hash")
+      ToolTip = ("Guardar hash en archivo")
       Text = ("Guardar")
       Picture = Picture["icon:/22/download"]
     }
     { btCHashA Button
       MoveScaled(81,75,4,4)
-      ToolTip = ("Copiar al portapapeles")
+      ToolTip = ("Copiar la salida al portapapeles")
       Picture = Picture["icon:/16/copy"]
     }
     Index = 2
@@ -310,14 +311,16 @@
       MoveScaled(2,69,103,0)
       Background = Color.Black
     }
-    { dcDIR DirChooser
+    { !dcDIR DirChooser
       MoveScaled(2,16,103,46)
+      #Public = True
       ToolTip = ("Doble click sobre el directorio para realizar el hash")
       ShowDetailed = True
       ShowSplitter = False
     }
-    { txHashDir TextArea
+    { !txHashDir TextArea
       MoveScaled(2,70,103,25)
+      #Public = True
       ToolTip = ("Salida del hash")
       Alignment = Align.Left
       ReadOnly = True
@@ -326,13 +329,13 @@
     { btGuardar Button
       MoveScaled(87,64,18,4)
       Enabled = False
-      ToolTip = ("Guardar salida hash")
+      ToolTip = ("Guardar salida hash en archivo")
       Text = ("Guardar")
       Picture = Picture["icon:/22/save-as"]
     }
     { btCHashD Button
       MoveScaled(81,64,4,4)
-      ToolTip = ("Copiar al portapapeles")
+      ToolTip = ("Copiar la salida al portapapeles")
       Picture = Picture["icon:/16/copy"]
     }
     { rbNormal RadioButton
@@ -380,8 +383,8 @@
       Wrap = True
     }
     { ckOK CheckBox
-      MoveScaled(1,63,25,3)
-      ToolTip = ("Muestra solo salida si hay errores")
+      MoveScaled(1,63,25,4)
+      ToolTip = ("Muestra salida solo si hay errores.")
       Text = ("Mostrar solo errores?")
     }
     Index = 4
@@ -427,7 +430,7 @@
       Stretch = True
     }
     { txtAbout TextArea
-      MoveScaled(1,1,105,27)
+      MoveScaled(1,1,104,27)
       ToolTip = ("Acerca de mí") & "..."
       Text = ("Hobbista y nerd, me gusta experimentar y aprender haciendo aplicaciones que\nme hagan las cosas más fáciles. \nTengo un blog donde subo mis proyectos (incluidas las fuentes de este programa) e información adicional:\n\nhttps://thenerdyapprentice.blogspot.com/\n\nSi encontraste útil este programa: por favor visita el blog!, dejá un comentario y difundí!\n\nEste programa es de libre distribución.\n\nSaludos! ")
       ReadOnly = True
@@ -440,7 +443,7 @@
       Link = "https://thenerdyapprentice.blogspot.com/"
     }
     { btBuscarAct Button
-      MoveScaled(76,30,30,5)
+      MoveScaled(75,30,30,5)
       Text = ("Buscar actualizaciones") & "..."
       Picture = Picture["icon:/22/download"]
     }

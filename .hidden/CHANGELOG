@@ -1,3 +1,15 @@
+* Tue Apr 13 2021 The Nerdy Apprentice <marianocattani@gmail.com> 1.14.6
+- Pequeña correción en el tamaño del formulario
+
+* Tue Apr 13 2021 The Nerdy Apprentice <marianocattani@gmail.com> 1.14.5
+
+* Tue Apr 13 2021 The Nerdy Apprentice <marianocattani@gmail.com> 1.14.5
+- Varios errores corregidos.
+- Optimización del código.
+- Agregadas funciones para copiar las salidas del programa al portapapeles.
+- Agregadas funciones para guardar la salida del programa en texto plano.
+- Agregada función para guardar actualizaciones del programa.
+
 * Wed Nov 25 2020 The Nerdy Apprentice <marianocattani@gmail.com> 1.1.4
 - Pequeños arreglos de bugs.
 

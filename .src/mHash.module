@@ -1,5 +1,8 @@
 ' Gambas module file
 
+Public hProc As Process
+
+
 Public Function HashTxT(Tipo As String, Cadena As String, Code As String) As String
   'Ejemplo de comando: echo "facebook.com password 1234" | hashrat -sha1 -64
   'Tipos posibles: md5, sha1, sha256, sha512, whirl, jh224, jh256, jh384, jh512
@@ -19,63 +22,108 @@ Public Function HashTxT(Tipo As String, Cadena As String, Code As String) As Str
 
 End
 
-Public Function HashArch(Tipo As String, Arch As String, Code As String) As String
+Public Function HashArch(Tipo As String, Code As String) As String
   ' Ej: hashrat -sha256 -8  iw5sp.exe
 
   Dim Comm As String, Salida As String
 
   If code = "" Then
-    Comm = "hashrat -" & tipo & " " & Arch & " -trad"
+    Comm = "hashrat -" & tipo & " " & "-trad " & Shell(FMain.fcArch.SelectedPath)
   Else
-    Comm = "hashrat -" & tipo & " -" & code & " " & Arch & " -trad"
+    Comm = "hashrat -" & tipo & " -" & code & " " & "-trad " & Shell(FMain.fcArch.SelectedPath) 
   Endif
 
   Print Comm
 
   Shell (Comm) To Salida
-    
+  
   Return Salida
+  
+ ' While hProc.State = hProc.Running
+ '   FMain.Mouse = Mouse.Wait
+ '   Wait 1
 
+ ' Wend
+  
+ ' FMain.mouse = Mouse.Default
+  
 End
 
-Public Function HashDir(Tipo As String, Dir As String, Code As String, Recursive As Boolean) As String
+Public Function HashDir(Tipo As String, Code As String, Recursive As Boolean) As String
 
-  Dim Comm As String, Salida As String
+  Dim Comm As String
 
   Select Case Recursive
     Case False
       If Code = "" Then
-        Comm = "hashrat " & "-" & tipo & " -t " & dir 
-      Else
-        comm = "hashrat " & "-" & tipo & " -" & code & " -t " & dir 
+        Comm = "hashrat " & "-" & tipo & " -t " & Shell(FMain.dcDIR.SelectedPath)
+          Else
+        comm = "hashrat " & "-" & tipo & " -" & code & " -t " & Shell(FMain.dcDIR.SelectedPath)
       Endif
     Case True
       If code = "" Then
-        Comm = "hashrat " & "-r " & " -" & tipo & " -t " & dir 
+        Comm = "hashrat " & "-r " & " -" & tipo & " -t " & Shell(FMain.dcDIR.SelectedPath)
       Else
-        comm = "hashrat " & "-" & tipo & " -r" & " -" & code & " -t " & dir
+        comm = "hashrat " & "-" & tipo & " -r" & " -" & code & " -t " & Shell(FMain.dcDIR.SelectedPath)
       Endif
   End Select
 
   Print comm
-
-  Shell (comm) To Salida
-   
-  Return Salida
-
+ 
+  hproc = Shell (comm) For Read As "Proceso"
+  
+  'Shell (comm) To Salida
+  
+  'Return Salida
 End
 
-Public Function HashDirCom(Tipo As String, Dir As String, Code As String) As String
+Public Sub Proceso_read()
+
+  Dim sLine As String
+  
+  sLine = Read #Last, Lof(Last)
+  FMain.txHashDir.Text &= sLine
+  FMain.txHashDir.EnsureVisible()
+  FMain.mouse = Mouse.Wait
+  
+End
+
+Public Sub Proceso_kill()
+  
+  FMain.Mouse = Mouse.Default
+  
+End
+
+
+Public Function HashDirCom(Tipo As String, Code As String) As String
 Dim Comm As String, Salida As String
 
-Comm = "hashrat " & "-dir -trad " & "-" & tipo & " " & "-" & Code & " " & Dir  
-
+Comm = "hashrat " & "-dir -trad " & "-" & tipo & " " & "-" & Code & " " & Shell(FMain.dcDIR.SelectedPath)
+  
 Print Comm
 
-Shell (Comm) To Salida
+hproc = Shell (Comm) For Read As "Proceso2"
 
 Return Salida
+
     
+End
+
+Public Sub Proceso2_read()
+
+  Dim sLine As String
+  
+  sLine = Read #Last, Lof(Last)
+  FMain.txHashDir.Text &= sLine
+  FMain.txHashDir.EnsureVisible()
+  FMain.mouse = Mouse.Wait
+  
+End
+
+Public Sub Proceso2_kill()
+  
+  FMain.Mouse = Mouse.Default
+  
 End
 
 
