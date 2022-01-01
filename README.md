@@ -1,5 +1,5 @@
 # hashratgui
-v1.14.6
+v1.14.8
 
 HashRat es una app utilizada para generar “hashes” utilizando diferentes algoritmos: md5, sha1, sha256, sha512, etc..
 

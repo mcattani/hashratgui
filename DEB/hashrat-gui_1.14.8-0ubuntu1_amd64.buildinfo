@@ -1,0 +1,31 @@
+Format: 1.0
+Source: hashrat-gui
+Binary: hashrat-gui
+Architecture: all source
+Version: 1.14.8-0ubuntu1
+Checksums-Md5:
+ fa2aa3823f759a84a70cfb307d826b2e 1383 hashrat-gui_1.14.8-0ubuntu1.dsc
+ d33bff7e52c17acd1f1680419407137d 1562920 hashrat-gui_1.14.8-0ubuntu1_all.deb
+Checksums-Sha1:
+ b130f72efa23b7c53a51b0071f103b6d412ac2a7 1383 hashrat-gui_1.14.8-0ubuntu1.dsc
+ e25186b18cd70c430f42c97de4cbd525b7292cb7 1562920 hashrat-gui_1.14.8-0ubuntu1_all.deb
+Checksums-Sha256:
+ 9148598a75b67da2900b4f547d86b097bb176772e1c065d01e93cf8c3b6a3a8b 1383 hashrat-gui_1.14.8-0ubuntu1.dsc
+ bc8b7175b72f3994b7f03dc21a794b791740b1fcf7d65152b2ebb6c4f9c8e8e5 1562920 hashrat-gui_1.14.8-0ubuntu1_all.deb
+Build-Origin: ArchLinux
+Build-Architecture: amd64
+Build-Date: Sat, 01 Jan 2022 19:24:17 -0300
+Environment:
+ DEB_BUILD_OPTIONS="parallel=4"
+ LANG="es_AR.UTF-8"
+ LC_ADDRESS="es_AR.UTF-8"
+ LC_ALL="es_AR.UTF-8"
+ LC_IDENTIFICATION="es_AR.UTF-8"
+ LC_MEASUREMENT="es_AR.UTF-8"
+ LC_MONETARY="es_AR.UTF-8"
+ LC_NAME="es_AR.UTF-8"
+ LC_NUMERIC="es_AR.UTF-8"
+ LC_PAPER="es_AR.UTF-8"
+ LC_TELEPHONE="es_AR.UTF-8"
+ LC_TIME="es_AR.UTF-8"
+ SOURCE_DATE_EPOCH="1641038400"

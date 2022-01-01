@@ -1,0 +1,32 @@
+Format: 1.8
+Date: Sat, 01 Jan 2022 12:00:00 +0000
+Source: hashrat-gui
+Binary: hashrat-gui
+Architecture: source all
+Version: 1.14.8-0ubuntu1
+Distribution: unstable
+Urgency: low
+Maintainer: The Nerdy Apprentice <marianocattani@gmail.com>
+Changed-By: The Nerdy Apprentice <marianocattani@gmail.com>
+Description:
+ hashrat-gui - GUI para HashRat.
+Changes:
+ hashrat-gui (1.14.8-0ubuntu1) unstable; urgency=low
+ .
+   * Pequeña corrección de código que busca rutas alternaticas de instalación de
+     "hashrat" al inicio
+Checksums-Sha1:
+ b130f72efa23b7c53a51b0071f103b6d412ac2a7 1383 hashrat-gui_1.14.8-0ubuntu1.dsc
+ c7e5b47cecd69dd45b504ae65b9908f1114d993f 1905 hashrat-gui_1.14.8-0ubuntu1.diff.gz
+ e25186b18cd70c430f42c97de4cbd525b7292cb7 1562920 hashrat-gui_1.14.8-0ubuntu1_all.deb
+ 4b26bd0c105421f399ee07b3166e8551359f4479 1131 hashrat-gui_1.14.8-0ubuntu1_amd64.buildinfo
+Checksums-Sha256:
+ 9148598a75b67da2900b4f547d86b097bb176772e1c065d01e93cf8c3b6a3a8b 1383 hashrat-gui_1.14.8-0ubuntu1.dsc
+ 2a9111f73ea22d304a4da550dd97fde1694d7c9233b6af07f76ecd11cd7411f4 1905 hashrat-gui_1.14.8-0ubuntu1.diff.gz
+ bc8b7175b72f3994b7f03dc21a794b791740b1fcf7d65152b2ebb6c4f9c8e8e5 1562920 hashrat-gui_1.14.8-0ubuntu1_all.deb
+ 60ae3eb1fcb3639f51f574e19b0dea8c122063d6dbe7b99d6889b4c60475661e 1131 hashrat-gui_1.14.8-0ubuntu1_amd64.buildinfo
+Files:
+ fa2aa3823f759a84a70cfb307d826b2e 1383 contrib/utils optional hashrat-gui_1.14.8-0ubuntu1.dsc
+ a46cd0103d56c97cfa1db6bd75d03645 1905 contrib/utils optional hashrat-gui_1.14.8-0ubuntu1.diff.gz
+ d33bff7e52c17acd1f1680419407137d 1562920 contrib/utils optional hashrat-gui_1.14.8-0ubuntu1_all.deb
+ e4ba742f39323dd6c1b89e0bc7a2fa4c 1131 contrib/utils optional hashrat-gui_1.14.8-0ubuntu1_amd64.buildinfo

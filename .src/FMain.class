@@ -4,7 +4,7 @@ Public Sub Form_Open()
 FMain.Text = FMain.Text & " v" & Application.Version
 
 'Chequeamos que el programa exista
-If Not Exist("/usr/bin/hashrat") Then
+If Not Exist("/usr/bin/hashrat") And Not Exist("/usr/local/bin/hashrat") Then
   Message.Warning("Debe tener el programa 'hashrat' para poder utilizar este programa.")
   Return
 Endif
